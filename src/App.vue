@@ -1,17 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <HelloWorld msg="Welcome to Your Vue.js App" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { getList } from './api/index';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  mounted() {
+    getList({
+      // get请求放params
+      // post请求放data里面
+      // 参考链接：https://axios-http.com/docs/req_config
+      params: {
+        sss: '3',
+      },
+    });
+  },
+};
 </script>
 
 <style>
